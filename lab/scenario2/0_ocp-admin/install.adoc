@@ -1,0 +1,56 @@
+= As an OCP Cluster Admin; Installing IoT Operator extension
+
+== Customer Brief
+
+You work for Red Hat as a Cloud Consultant. You've successfully installed AMQ Online but a team has requested the ability to
+use a tech-preview feature called 'IoT'. The following JIRA tickets have been raised.
+
+*DEPLOY IOT FEATURES ONTO AMQ ONLINE CLUSTER; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#downloading-messaging-gs[docs]*
+
+    AS A SRE team member
+    I WANT TO download the amq online zip
+    SO THAT i can get the iot yaml
+
+*DEPLOY IOT FEATURES ONTO AMQ ONLINE CLUSTER; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#installing-services-messaging[docs]*
+
+    AS A SRE team member
+    I WANT TO install the iot features onto a AMQ Online cluster
+    SO THAT a team can use the iot features
+
+== How do I do that?
+
+If the IoT features have been deployed successfully, you should see something like:
+
+[source,bash,prettyprint]
+----
+$ oc apply -n $OPERATOR_NS
+customresourcedefinition.apiextensions.k8s.io/iotprojects.iot.enmasse.io created
+serviceaccount/iot-operator created
+clusterrole.rbac.authorization.k8s.io/enmasse.io:iot-operator created
+clusterrole.rbac.authorization.k8s.io/iot.enmasse.io:tenant-edit created
+clusterrole.rbac.authorization.k8s.io/iot.enmasse.io:tenant-view created
+clusterrole.rbac.authorization.k8s.io/iot-project-configurator created
+clusterrolebinding.rbac.authorization.k8s.io/iot-project-configurator-project created
+clusterrolebinding.rbac.authorization.k8s.io/enmasse.io:iot-operator-amq-online-infra created
+deployment.apps/iot-operator created
+
+$ oc get pods -n $OPERATOR_NS
+enmasse-operator-85f495fc7c-fzq8t           1/1     Running   0          77m
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          77m
+api-server-9fc7bf698-4btgd                  1/1     Running   0          77m
+user-api-server-556d984467-27xsd            1/1     Running   0          77m
+standard-authservice-77859d9ccb-2grlg       1/1     Running   0          40m
+qdrouterd-bgfj9fsa0q-0                      1/1     Running   0          24m
+admin.bgfj9fsa0q-d867b4bb-clkvg             2/2     Running   0          24m
+broker-bgfj9fsa0q-zo09-0                    1/1     Running   0          23m
+broker-bgfj9fsa0q-qce8-0                    1/1     Running   0          23m
+broker-bgfj9fsa0q-feen-0                    1/1     Running   0          23m
+console-5657c8797-drvtp                     2/2     Running   0          23m
+qdrouterd-bgfj9fsa0q-1                      1/1     Running   0          23m
+qdrouterd-bgfj9fsa0q-2                      1/1     Running   0          21m
+iot-operator-564dc665b9-hlzxl               1/1     Running   0          2m
+----
+
+== Whats next?
+
+Once the IoT features are deployed correctly, move onto the deploying the AMQ Online link:../1_amq-admin/install.adoc[IoT infrastructure].

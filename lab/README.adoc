@@ -1,0 +1,41 @@
+= The aim
+
+Your table has a number, each number represents a cluster. As AMQ Online can only be installed _once_ on a cluster,
+work with your fellow table members to install the operator.
+
+> https://docs.google.com/spreadsheets/d/13szSz1ZPeZWVd7fMEptudQIEiq1bB41W-2upOmKM600/edit?usp=sharing
+
+There are two scenarios provided which should be completed in order. The link:scenario1/scenario1.adoc[first scenario] installs the core infrastucure
+and shows how to get AMQ Online running. The link:scenario2/scenario2.adoc[second scenario] adds the tech preview IoT features.
+
+Both scenarios complete the second part of the lab showing the cloud-native application connected to the cluster.
+
+We suggest you follow a GitOps approach, so fork this repo and push all your changes there. Want to do some post lab reading
+around GitOps? Have a listen to link:http://podcast.podctl.com/110399/1299394-introduction-to-gitops[PodCtl] and a read of this
+link:https://developers.redhat.com/blog/2019/05/17/self-service-messaging-with-red-hat-amq-online-and-gitops/[blog] post.
+
+== Customer background
+
+Enterprise Puckmard Hughlett Trucks (EPHT) is the number one logistics company in EMEA. They are currently going through
+a digital transformation programme to enable its internal customers to use cloud-native self-service products.
+
+EPHT are currently building a new product which will be sold under the name of SmartTrucks. It aims to collect metric data points from
+their fleet of trucks and report back to HQ so that it can be processed by their big data team.
+
+The v1 metrics include:
+
+- Current GPS location coordinates
+- Current speed in km/h
+- Doors open/closed
+- Fuel level as a percentage
+- Driver notifications
+- Truck notifications
+
+Each sensor on the truck will send its metric data points on a fixed period as well as any dramatic changes in its reading,
+i.e.: sudden speed change. Depending on the metric type, will determine if the communication is via AMQP or MQTT.
+If the sensor is unable to send the metric data points, it will be cached locally until it can be retried.
+
+Once the metric data points have been received by AMQ Online, they will be processed by an integration layer and
+stored in a data layer.
+
+Ready to link:scenario1/scenario1.adoc[start]?

@@ -1,0 +1,20 @@
+---
+apiVersion: admin.enmasse.io/v1beta2
+kind: AddressSpacePlan
+metadata:
+  name: standarddev
+  labels:
+    app: rhte2019-admin
+spec:
+  displayName: Standard development plan which offers HA support but no JMS specific features.
+  displayOrder: 0
+  infraConfigRef: lowresources
+  addressSpaceType: standard
+  resourceLimits:
+    router: 3.0
+    broker: 3.0
+    aggregate: 6.0
+  addressPlans:
+  - queue-partitioned
+  - anycast-lowresources
+  - queue-lowresources

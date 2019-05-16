@@ -1,0 +1,20 @@
+---
+kind: IoTProject
+apiVersion: iot.enmasse.io/v1alpha1
+metadata:
+  name: iot
+  labels:
+    app: rhte2019-tenant
+spec:
+  downstreamStrategy:
+    managedStrategy:
+      addressSpace:
+        name: iot
+        plan: standarddev
+      addresses:
+        telemetry:
+          plan: anycast-lowresources
+        event:
+          plan: queue-lowresources
+        command:
+          plan: anycast-lowresources

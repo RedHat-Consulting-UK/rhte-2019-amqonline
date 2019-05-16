@@ -1,0 +1,10 @@
+---
+apiVersion: enmasse.io/v1beta1
+kind: AddressSpace
+metadata:
+  name: smarttruck
+  labels:
+    app: rhte2019-tenant
+spec:
+  type: standard
+  plan: standarddev

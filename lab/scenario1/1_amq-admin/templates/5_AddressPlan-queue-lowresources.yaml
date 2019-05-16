@@ -1,0 +1,12 @@
+---
+apiVersion: admin.enmasse.io/v1beta2
+kind: AddressPlan
+metadata:
+  name: queue-lowresources
+  labels:
+    app: rhte2019-admin
+spec:
+  displayName: Queue with low resource guarantees.
+  resources:
+    router: 0.001
+    broker: 0.15

@@ -1,0 +1,17 @@
+---
+apiVersion: iot.enmasse.io/v1alpha1
+kind: IoTConfig
+metadata:
+  name: default
+  labels:
+    app: rhte2019-admin
+spec:
+  adapters:
+    http:
+      endpoint:
+        secretNameStrategy:
+          secretName: iot-http-adapter-tls
+    mqtt:
+      endpoint:
+        secretNameStrategy:
+          secretName: iot-mqtt-adapter-tls

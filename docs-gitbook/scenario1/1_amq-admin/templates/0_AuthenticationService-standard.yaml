@@ -1,0 +1,7 @@
+---
+apiVersion: admin.enmasse.io/v1beta1
+kind: AuthenticationService
+metadata:
+  name: standard-authservice
+  labels:
+    app: rhte2019-admin

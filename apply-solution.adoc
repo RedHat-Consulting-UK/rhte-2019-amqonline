@@ -1,0 +1,16 @@
+= Apply Solution
+
+== Part: 1
+- source lab/scenario1/0_ocp-admin/install-solution.sh
+- source lab/scenario1/1_amq-admin/install-solution.sh
+- source lab/scenario1/2_tenant/install-solution.sh
+
+== Part: 2
+- source lab/scenario2/2_tenant/install-solution-build-hono-cli.sh
+
+- source lab/scenario2/0_ocp-admin/install-solution.sh
+- source lab/scenario2/1_amq-admin/install-solution.sh
+- source lab/scenario2/2_tenant/install-solution.sh
+
+- source lab/scenario2/2_tenant/install-solution-start-consumer.sh
+- source lab/scenario2/2_tenant/install-solution-start-producer.sh

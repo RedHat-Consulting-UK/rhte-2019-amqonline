@@ -1,0 +1,68 @@
+= As an AMQ Online System Admin; Deploying the IoT infrastructure
+
+== Customer Brief
+
+You work for Red Hat as a Middleware Consultant. An AMQ Online tenant has requested you deploy the iot infrastructure.
+The following JIRA tickets have been raised.
+
+*GENERATE TLS CERTS VALID FOR CLUSTER; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#installing-services-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO generate ssl certs for my cluster
+    SO THAT tenants have valid certificates for the adapter endpoints
+
+TIP: If you are on a Mac, you might get OpenSSL issues if you are using the Apple binary: brew install openssl
+
+TIP: To set the CLUSTER env, get it from the Ingress object: oc get ingress.config/cluster -o jsonpath='{.spec.domain}'
+
+*CREATE SECRETS FOR ADAPTER TLS CERTS; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#installing-services-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO create secrets for 'iot-mqtt-adapter-tls' and 'iot-http-adapter-tls'
+    SO THAT the secrets can be references by IoTConfig
+
+*CONFIGURE IOT CONFIG TO USE SECRETS; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#iot-creating-project-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the 'default' IoTConfig to use the created secrets for the mqtt and http adapters
+    SO THAT they are used by the iot infrastructure
+
+== How do I do that?
+
+A starting point for link:templates[YAML templates] has been provided but some have missing properties.
+Follow the docs provided and update the YAML. You should reference the AMQ Online download examples for what properties
+should be added. Once you have applied the YAML to the cluster, you should see something like:
+
+[source,bash,prettyprint]
+----
+$ oc apply -n $OPERATOR_NS
+secret/iot-mqtt-adapter-tls created
+secret/iot-http-adapter-tls created
+iotconfig.iot.enmasse.io/default created
+
+$ oc get pods -n $OPERATOR_NS
+enmasse-operator-85f495fc7c-fzq8t           1/1     Running   0          77m
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          77m
+api-server-9fc7bf698-4btgd                  1/1     Running   0          77m
+user-api-server-556d984467-27xsd            1/1     Running   0          77m
+standard-authservice-77859d9ccb-2grlg       1/1     Running   0          40m
+qdrouterd-bgfj9fsa0q-0                      1/1     Running   0          24m
+admin.bgfj9fsa0q-d867b4bb-clkvg             2/2     Running   0          24m
+broker-bgfj9fsa0q-zo09-0                    1/1     Running   0          23m
+broker-bgfj9fsa0q-qce8-0                    1/1     Running   0          23m
+broker-bgfj9fsa0q-feen-0                    1/1     Running   0          23m
+console-5657c8797-drvtp                     2/2     Running   0          23m
+qdrouterd-bgfj9fsa0q-1                      1/1     Running   0          23m
+qdrouterd-bgfj9fsa0q-2                      1/1     Running   0          21m
+iot-operator-564dc665b9-hlzxl               1/1     Running   0          5m39s
+iot-gc-64df47fb7f-p2n5p                     1/1     Running   0          2m1s
+iot-tenant-service-7b868d7956-jqpb2         1/1     Running   0          2m1s
+iot-auth-service-756888b899-nm5n2           1/1     Running   0          2m1s
+iot-http-adapter-64996d6f8b-b4mbd           3/3     Running   0          2m
+iot-device-registry-b7ff684df-wrd7w         1/1     Running   0          2m
+iot-mqtt-adapter-5957679c77-lfg5s           3/3     Running   0          2m
+----
+
+== Whats next?
+
+Once the AMQ Online IoT infrastructure is deployed correctly, move onto the deploying the AMQ Online link:../2_tenant/configure.adoc[IoT tenant infrastructure].

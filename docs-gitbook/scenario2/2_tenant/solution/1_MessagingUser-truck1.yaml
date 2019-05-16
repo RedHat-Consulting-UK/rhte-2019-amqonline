@@ -1,0 +1,15 @@
+---
+kind: MessagingUser
+apiVersion: user.enmasse.io/v1beta1
+metadata:
+  name: iot.truck1
+  labels:
+    app: rhte2019-tenant
+spec:
+  username: truck1
+  authentication:
+    type: password
+    password: cGFzc3dvcmQ= #password
+  authorization:
+  - addresses:  [ "*"]
+    operations: [ "send", "recv" ]

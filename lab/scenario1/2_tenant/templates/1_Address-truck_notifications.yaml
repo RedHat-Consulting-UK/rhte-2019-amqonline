@@ -1,0 +1,9 @@
+---
+apiVersion: enmasse.io/v1beta1
+kind: Address
+metadata:
+  name: smarttruck.trucknotifications
+  labels:
+    app: rhte2019-tenant
+spec:
+  address: truck_notifications

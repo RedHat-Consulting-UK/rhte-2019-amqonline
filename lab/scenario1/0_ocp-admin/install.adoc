@@ -1,0 +1,51 @@
+= As an OCP Cluster Admin; Installing via the Operator
+
+*FYI: Installing AMQ Online can only be done ONCE on a single cluster! Talk with your cluster friends about who will do this.
+This is because AMQ Online deploys a custom API controller which can only have 1 instance cluster wide.*
+
+== Customer Brief
+
+You work for Red Hat as a Cloud Consultant. You've recently started an engagement with EPHT as part of their SRE team,
+working on their OCP4 cluster. You have been assigned a JIRA ticket to deploy AMQ Online on to the development cluster.
+
+
+*DEPLOY AMQ ONLINE OPERATOR; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/installing-messaging[docs]*
+
+    AS A SRE team member
+    I WANT TO deploy the AMQ Online operator
+    SO THAT the OCP cluster tenants have the capability to deploy AMQ Online
+
+== How do I do that?
+
+AMQ Online can be installed (as of 1.1) link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/installing-messaging[manually or via Ansible].
+But, since we are running on OCP4; we'll use the operator from the upstream on the link:https://operatorhub.io/operator/enmasse[operator hub].
+Since we are on OCP4, this can all be done from within the web console.
+
+Take note of the _namespace_ which the operator is deployed into. We want to export that to our shell for later use.
+
+[source,bash,prettyprint]
+----
+export OPERATOR_NS=openshift-operators
+----
+
+If the operator has been deployed successfully, you should see something like:
+
+[source,bash,prettyprint]
+----
+$ oc apply -n $OPERATOR_NS
+operatorsource.operators.coreos.com/enmasse-operators created
+catalogsourceconfig.operators.coreos.com/installed-enmasse-operators created
+subscription.operators.coreos.com/enmasse created
+
+$ oc get pods -n $OPERATOR_NS
+NAME                                        READY   STATUS    RESTARTS   AGE
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          73s
+api-server-9fc7bf698-4btgd                  1/1     Running   0          70s
+console-b468bbb74-7l24d                     1/2     Running   0          50s
+enmasse-operator-85f495fc7c-fzq8t           1/1     Running   0          74s
+user-api-server-556d984467-27xsd            1/1     Running   0          70s
+----
+
+== Whats next?
+
+Once the operator is deployed correctly, move onto the deploying the AMQ Online link:../1_amq-admin/install.adoc[core infrastructure].

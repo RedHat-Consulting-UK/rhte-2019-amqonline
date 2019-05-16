@@ -1,0 +1,13 @@
+# Scenario 2 - IoT
+
+*Level:* Hard
+
+*Prerequisites:* Scenario 1 completed and working. Basic understanding of messaging concepts related to AMQP/MQTT/IoT.
+
+*Outcome:* Successfully deployed AMQ Online IoT features which are tech preview and produced/consumed messages via MQTT and AMQP.
+
+## SoW
+
+    1. Assist client link:0_ocp-admin/install.adoc[deploying IoT features onto AMQ Online cluster].
+    2. Assist client link:1_amq-admin/install.adoc[configuring a AMQ Online cluster] to support IoT.
+    3. Assist client in testing the cluster is working correct by link:2_tenant/configure.adoc[producing and consuming messages] via AMQP/MQTT.

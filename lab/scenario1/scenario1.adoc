@@ -1,0 +1,13 @@
+= Scenario 1 - AMQP
+
+*Level:* Easy
+
+*Prerequisites:* Experienced in using OpenShift 3 or 4. Basic understanding of messaging concepts related to AMQP.
+
+*Outcome:* Successfully deployed AMQ Online via the Operator and produced/consumed messages to a highly available AMQ cluster via AMQP.
+
+== SoW
+
+    1. Assist client link:0_ocp-admin/install.adoc[deploying AMQ Online cluster].
+    2. Assist client link:1_amq-admin/install.adoc[configuring a basic AMQ Online cluster].
+    3. Assist client in testing the cluster is working correct by link:2_tenant/configure.adoc[producing and consuming messages] via AMQP.

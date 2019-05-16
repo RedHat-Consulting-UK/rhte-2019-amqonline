@@ -1,0 +1,18 @@
+= Summary
+
+== Intro
+
+== Scenario 1 - AMQP
+.. link:scenario1/scenario1.adoc[Statement Of Work]
+.. link:scenario1/0_ocp-admin/install.adoc[Installing via the Operator]
+.. link:scenario1/1_amq-admin/install.adoc[Deploying the core infrastructure]
+.. link:scenario1/2_tenant/configure.adoc[Configuring a tenant]
+
+== Scenario 2 - IoT
+.. link:scenario2/scenario2.adoc[Statement Of Work]
+.. link:scenario2/0_ocp-admin/install.adoc[Installing via the Operator]
+.. link:scenario2/1_amq-admin/install.adoc[Deploying the core infrastructure]
+.. link:scenario2/2_tenant/configure.adoc[Configuring a tenant]
+
+== The Cloud Native integration layer!
+.. link:todo.adoc[TODO]

@@ -1,0 +1,21 @@
+dist: trusty
+addons:
+  apt:
+    packages:
+    - nodejs
+    - npm
+language: java
+jdk:
+- openjdk11
+install:
+- mvn -N io.takari:maven:wrapper -Dmaven=3.6.0
+- java -version && javac -version && ./mvnw -version -B
+before_script:
+#- ./mvnw de.qaware.maven:go-offline-maven-plugin:resolve-dependencies -DdownloadSources -DdownloadJavadoc -B -Prelease-ossrh
+- find lab -type f -name "*.sh" -exec shellcheck -e SC1091 {} \;
+script:
+- ./mvnw -version -B
+#- ./mvnw clean install -B
+cache:
+  directories:
+  - $HOME/.m2

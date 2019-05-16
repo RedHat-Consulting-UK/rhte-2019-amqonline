@@ -1,0 +1,13 @@
+---
+apiVersion: admin.enmasse.io/v1beta2
+kind: AddressPlan
+metadata:
+  name: queue-partitioned
+  labels:
+    app: rhte2019-admin
+spec:
+  displayName: Queue with message partition supported.
+  addressType: queue
+  resources:
+    router: 0.1
+    broker: 0.15

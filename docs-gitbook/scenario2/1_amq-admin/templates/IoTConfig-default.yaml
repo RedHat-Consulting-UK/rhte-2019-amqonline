@@ -1,0 +1,7 @@
+---
+apiVersion: iot.enmasse.io/v1alpha1
+kind: IoTConfig
+metadata:
+  name: default
+  labels:
+    app: rhte2019-admin

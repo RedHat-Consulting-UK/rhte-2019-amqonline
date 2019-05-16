@@ -1,0 +1,552 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Configuring a tenant · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../todo.adoc" />
+    
+    
+    <link rel="prev" href="../1_amq-admin/install.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Intro</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Scenario 1 - AMQP</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../scenario1/scenario1.html">
+            
+                <a href="../../scenario1/scenario1.html">
+            
+                    
+                    Statement Of Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../scenario1/0_ocp-admin/install.html">
+            
+                <a href="../../scenario1/0_ocp-admin/install.html">
+            
+                    
+                    Installing via the Operator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../scenario1/1_amq-admin/install.html">
+            
+                <a href="../../scenario1/1_amq-admin/install.html">
+            
+                    
+                    Deploying the core infrastructure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../scenario1/2_tenant/configure.html">
+            
+                <a href="../../scenario1/2_tenant/configure.html">
+            
+                    
+                    Configuring a tenant
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Scenario 2 - IoT</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../scenario2.html">
+            
+                <a href="../scenario2.html">
+            
+                    
+                    Statement Of Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../0_ocp-admin/install.html">
+            
+                <a href="../0_ocp-admin/install.html">
+            
+                    
+                    Installing via the Operator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../1_amq-admin/install.html">
+            
+                <a href="../1_amq-admin/install.html">
+            
+                    
+                    Deploying the core infrastructure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.4" data-path="configure.html">
+            
+                <a href="configure.html">
+            
+                    
+                    Configuring a tenant
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">The Cloud Native integration layer!</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../todo.adoc">
+            
+                <span>
+            
+                    
+                    TODO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Configuring a tenant</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="as-an-tenant-configuring-a-tenant">As an Tenant; Configuring a tenant</h1>
+<div class="sect1">
+<h2 id="_customer_brief">Customer Brief</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You work for Red Hat as a Middleware Consultant. Your team has started to work on an IoT use case have raised following JIRA tickets.</p>
+</div>
+<div class="paragraph">
+<p><strong>CONFIGURE IOT PROJECT; <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#iot-creating-project-messaging" target="_blank">docs</a></strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AS A messaging administrator
+I WANT TO configure an IoTProject to use a &apos;managedStrategy&apos;
+SO THAT my team has the ability to produce/consume messages against the AMQ Cluster via MQTT and HTTP</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>REGISTER TEST DEVICE WITH REGISTRY; <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#iot-creating-device-messaging" target="_blank">docs</a></strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AS A messaging administrator
+I WANT TO register a device
+SO THAT i can associate a credential with the device</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>CREATE CREDENTIAL FOR TEST DEVICE; <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#iot-creating-device-messaging" target="_blank">docs</a></strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AS A messaging administrator
+I WANT TO create a credential
+SO THAT only allowed users can produce messages regarding that device</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>CONNECT CONSUMER TO HONO ENDPOINT; <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#iot-telemetry-messaging" target="_blank">docs</a></strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AS A messaging administrator
+I WANT TO
+SO THAT</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>PRODUCE MESSAGES TO MQTT AND HTTP ADAPTERS; <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/evaluating_amq_online_on_openshift_container_platform/index#sending_telemetry_data" target="_blank">docs</a></strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AS A messaging administrator
+I WANT TO produce messages via mqtt and http
+SO THAT i know the IoTProject works correctly</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_do_i_do_that">How do I do that?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A starting point for <a href="templates">YAML templates</a> has been provided but some have missing properties.
+Follow the docs provided and update the YAML. You should reference the AMQ Online download examples for what properties
+should be added. Once you have applied the YAML to the cluster, you should see something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ oc apply -n <span class="hljs-variable">$OPERATOR_NS</span>
+iotproject.iot.enmasse.io/iot created
+messaginguser.user.enmasse.io/iot.truck1 created
+
+$ oc get pods -n <span class="hljs-variable">$OPERATOR_NS</span>
+enmasse-operator-85f495<span class="hljs-built_in">fc</span>7c-fzq8t           1/1     Running   0          90m
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          90m
+api-server-9<span class="hljs-built_in">fc</span>7bf698-4btgd                  1/1     Running   0          90m
+user-api-server-556d984467-27xsd            1/1     Running   0          90m
+standard-authservice-77859d9ccb-2grlg       1/1     Running   0          53m
+qdrouterd-bgfj9fsa0q-0                      1/1     Running   0          37m
+admin.bgfj9fsa0q<span class="hljs-_">-d</span>867b4bb-clkvg             2/2     Running   0          37m
+broker-bgfj9fsa0q-zo09-0                    1/1     Running   0          36m
+broker-bgfj9fsa0q-feen-0                    1/1     Running   0          36m
+broker-bgfj9fsa0q-qce8-0                    1/1     Running   0          36m
+console-5657c8797-drvtp                     2/2     Running   0          36m
+qdrouterd-bgfj9fsa0q-1                      1/1     Running   0          35m
+qdrouterd-bgfj9fsa0q-2                      1/1     Running   0          34m
+iot-operator-564dc665b9-hlzxl               1/1     Running   0          18m
+iot-auth-service-756888b899-nm5n2           1/1     Running   0          14m
+iot-gc-64df47fb7f-p2n5p                     1/1     Running   0          14m
+iot-tenant-service-7b868d7956-jqpb2         1/1     Running   0          14m
+iot-mqtt-adapter-5957679c77-lfg5s           3/3     Running   0          14m
+iot-http-adapter-64996d6f8b-b4mbd           3/3     Running   0          14m
+iot-device-registry-b7ff684df-wrd7w         1/1     Running   0          14m
+qdrouterd-8jqoi7by7d-0                      1/1     Running   0          2m3s
+admin.8jqoi7by7d-6bd5586486-8vz24           2/2     Running   0          2m3s
+broker-8jqoi7by7d-6zrr-0                    1/1     Running   0          110s
+qdrouterd-8jqoi7by7d-1                      1/1     Running   0          48s
+
+$ oc get svc -n <span class="hljs-variable">$OPERATOR_NS</span>
+NAME                                     TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                                                   AGE
+service/broker-8jqoi7by7d-6zrr           ClusterIP   None             &lt;none&gt;        8080/TCP                                                  111s
+service/broker-bgfj9fsa0q-feen           ClusterIP   None             &lt;none&gt;        8080/TCP                                                  36m
+service/broker-bgfj9fsa0q-qce8           ClusterIP   None             &lt;none&gt;        8080/TCP                                                  36m
+service/broker-bgfj9fsa0q-zo09           ClusterIP   None             &lt;none&gt;        8080/TCP                                                  36m
+service/console                          ClusterIP   172.30.232.192   &lt;none&gt;        8443/TCP                                                  89m
+service/console-8jqoi7by7d               ClusterIP   172.30.255.247   &lt;none&gt;        8081/TCP                                                  2m4s
+service/console-bgfj9fsa0q               ClusterIP   172.30.73.204    &lt;none&gt;        8081/TCP                                                  37m
+service/iot-auth-service                 ClusterIP   172.30.150.187   &lt;none&gt;        5671/TCP                                                  14m
+service/iot-device-registry              ClusterIP   172.30.190.98    &lt;none&gt;        5671/TCP,8443/TCP                                         14m
+service/iot-http-adapter                 ClusterIP   172.30.194.207   &lt;none&gt;        8443/TCP                                                  14m
+service/iot-mqtt-adapter                 ClusterIP   172.30.193.202   &lt;none&gt;        8883/TCP                                                  14m
+service/iot-tenant-service               ClusterIP   172.30.84.12     &lt;none&gt;        5671/TCP                                                  14m
+service/messaging-8jqoi7by7d             ClusterIP   172.30.198.150   &lt;none&gt;        5672/TCP,5671/TCP,55671/TCP,56671/TCP,55672/TCP,443/TCP   2m4s
+service/messaging-bgfj9fsa0q             ClusterIP   172.30.185.240   &lt;none&gt;        5672/TCP,5671/TCP,55671/TCP,56671/TCP,55672/TCP,443/TCP   37m
+service/qdrouterd-headless-8jqoi7by7d    ClusterIP   None             &lt;none&gt;        55672/TCP,8080/TCP                                        2m4s
+service/qdrouterd-headless-bgfj9fsa0q    ClusterIP   None             &lt;none&gt;        55672/TCP,8080/TCP                                        37m
+service/queue-scheduler-8jqoi7by7d       ClusterIP   172.30.144.244   &lt;none&gt;        5672/TCP                                                  2m4s
+service/queue-scheduler-bgfj9fsa0q       ClusterIP   172.30.43.217    &lt;none&gt;        5672/TCP                                                  37m
+service/ragent-8jqoi7by7d                ClusterIP   172.30.175.233   &lt;none&gt;        5671/TCP                                                  2m4s
+service/ragent-bgfj9fsa0q                ClusterIP   172.30.135.155   &lt;none&gt;        5671/TCP                                                  37m
+service/standard-authservice             ClusterIP   172.30.147.210   &lt;none&gt;        8443/TCP,5671/TCP                                         53m
+service/standard-controller-8jqoi7by7d   ClusterIP   172.30.92.174    &lt;none&gt;        8080/TCP                                                  2m4s
+service/standard-controller-bgfj9fsa0q   ClusterIP   172.30.207.76    &lt;none&gt;        8080/TCP                                                  37m
+service/v1beta1-enmasse-io               ClusterIP   172.30.195.249   &lt;none&gt;        443/TCP                                                   90m
+service/v1beta1-user-enmasse-io          ClusterIP   172.30.34.204    &lt;none&gt;        443/TCP                                                   90m
+
+$ oc get route -n <span class="hljs-variable">$OPERATOR_NS</span>
+NAME                                                HOST/PORT                                                                                             PATH   SERVICES               PORT    TERMINATION        WILDCARD
+route.route.openshift.io/console                    console-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                           console                https   reencrypt          None
+route.route.openshift.io/console-8jqoi7by7d         console-8jqoi7by7d-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                console-8jqoi7by7d     https   reencrypt          None
+route.route.openshift.io/console-bgfj9fsa0q         console-bgfj9fsa0q-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                console-bgfj9fsa0q     https   reencrypt          None
+route.route.openshift.io/device-registry            device-registry-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                   iot-device-registry    https   reencrypt/None     None
+route.route.openshift.io/iot-http-adapter           iot-http-adapter-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                  iot-http-adapter       https   passthrough/None   None
+route.route.openshift.io/iot-mqtt-adapter           iot-mqtt-adapter-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                  iot-mqtt-adapter       mqtts   passthrough/None   None
+route.route.openshift.io/messaging-8jqoi7by7d       messaging-8jqoi7by7d-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com              messaging-8jqoi7by7d   amqps   passthrough        None
+route.route.openshift.io/messaging-bgfj9fsa0q       messaging-bgfj9fsa0q-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com              messaging-bgfj9fsa0q   amqps   passthrough        None
+route.route.openshift.io/messaging-wss-8jqoi7by7d   messaging-wss-8jqoi7by7d-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com          messaging-8jqoi7by7d   https   reencrypt          None
+route.route.openshift.io/messaging-wss-bgfj9fsa0q   messaging-wss-bgfj9fsa0q-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com          messaging-bgfj9fsa0q   https   reencrypt          None
+route.route.openshift.io/standard-authservice       standard-authservice-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com              standard-authservice   https   reencrypt          None</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_whats_next">Whats next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You&#x2019;ve now completed the scenario; well done! If you are interested in extending the scenarios, we suggest looking into:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/using_amq_online_on_openshift_container_platform/index#con-brokered-address-space-messaging" target="_blank">Deploy a brokered</a> AddressSpacePlan and AddressSpace</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/managing-address-spaces-messaging#ref-address-space-example-exporting-endpoints-messaging" target="_blank">Export the config</a> as a ConfigMap which can be used by your client pod</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/managing-address-spaces-messaging#ref-address-space-example-exposing-endpoints-messaging" target="_blank">Change how the messaging route is exposed</a> to use a fixed name, instead of using an auto-generated value</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#con-authentication-services-messaging" target="_blank">Configure the AuthenticationService</a> to have persistent storage</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/managing-address-spaces-messaging#ref-address-space-example-auth-service-messaging" target="_blank">Deploy a none AuthenticationService</a> which is used by another AddressSpace</p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html-single/using_amq_online_on_openshift_container_platform/index#logging-into-console-messaging" target="_blank">Use the console</a> to create and delete spaces</p>
+</li>
+<li>
+<p><a href="https://github.com/gpe-mw-training/amq-online-hackfest" target="_blank">Have a go doing the engineering/GPTE</a> hackthon examples</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once you&#x2019;ve done that, go have a beer!</p>
+</div>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../1_amq-admin/install.html" class="navigation navigation-prev " aria-label="Previous page: Deploying the core infrastructure">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../todo.adoc" class="navigation navigation-next " aria-label="Next page: TODO">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Configuring a tenant","level":"3.4","depth":1,"next":{"title":"TODO","level":"4.1","depth":1,"path":"todo.adoc","ref":"todo.adoc","articles":[]},"previous":{"title":"Deploying the core infrastructure","level":"3.3","depth":1,"path":"scenario2/1_amq-admin/install.adoc","ref":"scenario2/1_amq-admin/install.adoc","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"scenario2/2_tenant/configure.adoc","mtime":"2019-06-19T13:55:08.884Z","type":"asciidoc","time":""},"gitbook":{"path":"scenario2/2_tenant/configure.adoc","mtime":"2019-06-19T13:55:08.884Z","type":"asciidoc","time":""},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

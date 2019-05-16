@@ -1,0 +1,90 @@
+= As an AMQ Online System Admin; Deploying the core infrastructure
+
+== Customer Brief
+
+You work for Red Hat as a Middleware Consultant. Your customer, EPHT, has purchased a subscription for AMQ Online as the
+account team has told them that; _"AMQ Online is the best thing since sliced bread"_.
+Self-service, cloud native, multi tenant messaging; they love it!
+
+EPHT want to offer AMQ Online to their internal customers in development but since its their first deployment,
+they want to keep it simple and have raised the following JIRA tickets.
+
+*CONFIGURE AUTHENTICATION SERVICE; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#con-authentication-services-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO have authentication enabled on the AMQ Online cluster via the Standard AuthenticationService
+    SO THAT only those allowed can access the cluster
+
+*SET RESOURCE USAGE TO LOW IN DEV; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#applying-infra-config-changes-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the StandardInfraConfig router and broker 'resources' to use as little memory as possible
+    SO THAT the cluster resource usage is low and we stay within budget
+
+*SET PAGING BEHAVIOUR TO BLOCK; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#create-address-space-plans-cli-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the StandardInfraConfig broker 'addressFullPolicy' to block
+    SO THAT to control resource usage
+
+*CONFIGURE ADDRESS SPACE PLAN TO HAVE A PRIMARY AMQP TARGET USE CASE; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#create-address-space-plans-cli-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the AddressSpacePlan 'addressSpaceType' to be used primarily by AMQP users
+    SO THAT we dont offer JMS support in this address plan
+
+*CONFIGURE ADDRESS SPACE PLAN HAVE CAPACITY FOR MULTIPLE ADDRESSES; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#create-address-space-plans-cli-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the AddressSpacePlan 'resourceLimits' to have enough resources for multiple address plans
+    SO THAT we only need to support 1 plan within development
+
+*CONFIGURE ADDRESS PLAN WHICH IS PARTITIONED; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#con-address-plans-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the AddressPlan 'partitions' to be an odd number
+    SO THAT the address which subscribes to 'queue-partitioned' is HA
+
+*CONFIGURE ADDRESS PLAN WHICH IS QUEUE BASED; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#con-address-plans-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the AddressPlan 'addressType' to queue based
+    SO THAT cluster offers these semantics via 'queue-lowresources'
+
+*CONFIGURE ADDRESS PLAN WHICH IS ANYCAST BASED; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/configuring-messaging#con-address-plans-messaging[docs]*
+
+    AS A messaging administrator
+    I WANT TO configure the AddressPlan 'addressType' to anycast based
+    SO THAT cluster offers these semantics via 'anycast-lowresources'
+
+TIP: You think everything is deployed and working? Check the logs of the 'address-space-controller':
+     oc logs $(oc get pods -n $OPERATOR_NS -l name=address-space-controller -o jsonpath='{.items[0].metadata.name}') -n $OPERATOR_NS
+
+== How do I do that?
+
+A starting point for link:templates[YAML templates] has been provided but some have missing properties.
+Follow the docs provided and update the YAML. Once you have applied the YAML to the cluster, you should see something like:
+
+[source,bash,prettyprint]
+----
+$ oc apply -f lab/scenario1/1_amq-admin/templates -n $OPERATOR_NS
+authenticationservice.admin.enmasse.io/standard-authservice created
+standardinfraconfig.admin.enmasse.io/lowresources created
+addressspaceplan.admin.enmasse.io/standarddev created
+addressplan.admin.enmasse.io/queue-partitioned created
+addressplan.admin.enmasse.io/anycast-lowresources created
+addressplan.admin.enmasse.io/queue-lowresources created
+
+$ oc get pods -n $OPERATOR_NS
+NAME                                        READY   STATUS    RESTARTS   AGE
+enmasse-operator-85f495fc7c-fzq8t           1/1     Running   0          43m
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          43m
+api-server-9fc7bf698-4btgd                  1/1     Running   0          43m
+user-api-server-556d984467-27xsd            1/1     Running   0          43m
+console-b468bbb74-7l24d                     2/2     Running   0          42m
+standard-authservice-77859d9ccb-2grlg       1/1     Running   0          6m8s
+----
+
+== Whats next?
+
+Once the AMQ Online core infrastructure is deployed correctly, move onto the deploying the AMQ Online link:../2_tenant/configure.adoc[tenant infrastructure].

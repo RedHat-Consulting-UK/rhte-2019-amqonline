@@ -1,0 +1,445 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Installing via the Operator · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../1_amq-admin/install.html" />
+    
+    
+    <link rel="prev" href="../scenario1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Intro</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Scenario 1 - AMQP</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../scenario1.html">
+            
+                <a href="../scenario1.html">
+            
+                    
+                    Statement Of Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    Installing via the Operator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../1_amq-admin/install.html">
+            
+                <a href="../1_amq-admin/install.html">
+            
+                    
+                    Deploying the core infrastructure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../2_tenant/configure.html">
+            
+                <a href="../2_tenant/configure.html">
+            
+                    
+                    Configuring a tenant
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Scenario 2 - IoT</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../scenario2/scenario2.html">
+            
+                <a href="../../scenario2/scenario2.html">
+            
+                    
+                    Statement Of Work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../scenario2/0_ocp-admin/install.html">
+            
+                <a href="../../scenario2/0_ocp-admin/install.html">
+            
+                    
+                    Installing via the Operator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../scenario2/1_amq-admin/install.html">
+            
+                <a href="../../scenario2/1_amq-admin/install.html">
+            
+                    
+                    Deploying the core infrastructure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../scenario2/2_tenant/configure.html">
+            
+                <a href="../../scenario2/2_tenant/configure.html">
+            
+                    
+                    Configuring a tenant
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">The Cloud Native integration layer!</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../todo.adoc">
+            
+                <span>
+            
+                    
+                    TODO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Installing via the Operator</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="as-an-ocp-cluster-admin-installing-via-the-operator">As an OCP Cluster Admin; Installing via the Operator</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>FYI: Installing AMQ Online can only be done ONCE on a single cluster! Talk with your cluster friends about who will do this.
+This is because AMQ Online deploys a custom API controller which can only have 1 instance cluster wide.</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customer_brief">Customer Brief</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You work for Red Hat as a Cloud Consultant. You&#x2019;ve recently started an engagement with EPHT as part of their SRE team,
+working on their OCP4 cluster. You have been assigned a JIRA ticket to deploy AMQ Online on to the development cluster.</p>
+</div>
+<div class="paragraph">
+<p><strong>DEPLOY AMQ ONLINE OPERATOR; <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/installing-messaging" target="_blank">docs</a></strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AS A SRE team member
+I WANT TO deploy the AMQ Online operator
+SO THAT the OCP cluster tenants have the capability to deploy AMQ Online</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_do_i_do_that">How do I do that?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AMQ Online can be installed (as of 1.1) <a href="https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/installing_and_managing_amq_online_on_openshift_container_platform/installing-messaging" target="_blank">manually or via Ansible</a>.
+But, since we are running on OCP4; we&#x2019;ll use the operator from the upstream on the <a href="https://operatorhub.io/operator/enmasse" target="_blank">operator hub</a>.
+Since we are on OCP4, this can all be done from within the web console.</p>
+</div>
+<div class="paragraph">
+<p>Take note of the <em>namespace</em> which the operator is deployed into. We want to export that to our shell for later use.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"><span class="hljs-built_in">export</span> OPERATOR_NS=openshift-operators</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the operator has been deployed successfully, you should see something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ oc apply -n <span class="hljs-variable">$OPERATOR_NS</span>
+operatorsource.operators.coreos.com/enmasse-operators created
+catalogsourceconfig.operators.coreos.com/installed-enmasse-operators created
+subscription.operators.coreos.com/enmasse created
+
+$ oc get pods -n <span class="hljs-variable">$OPERATOR_NS</span>
+NAME                                        READY   STATUS    RESTARTS   AGE
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          73s
+api-server-9<span class="hljs-built_in">fc</span>7bf698-4btgd                  1/1     Running   0          70s
+console-b468bbb74-7l24d                     1/2     Running   0          50s
+enmasse-operator-85f495<span class="hljs-built_in">fc</span>7c-fzq8t           1/1     Running   0          74s
+user-api-server-556d984467-27xsd            1/1     Running   0          70s</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_whats_next">Whats next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once the operator is deployed correctly, move onto the deploying the AMQ Online <a href="../1_amq-admin/install.html">core infrastructure</a>.</p>
+</div>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../scenario1.html" class="navigation navigation-prev " aria-label="Previous page: Statement Of Work">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../1_amq-admin/install.html" class="navigation navigation-next " aria-label="Next page: Deploying the core infrastructure">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Installing via the Operator","level":"2.2","depth":1,"next":{"title":"Deploying the core infrastructure","level":"2.3","depth":1,"path":"scenario1/1_amq-admin/install.adoc","ref":"scenario1/1_amq-admin/install.adoc","articles":[]},"previous":{"title":"Statement Of Work","level":"2.1","depth":1,"path":"scenario1/scenario1.adoc","ref":"scenario1/scenario1.adoc","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"scenario1/0_ocp-admin/install.adoc","mtime":"2019-06-19T09:42:26.352Z","type":"asciidoc","time":""},"gitbook":{"path":"scenario1/0_ocp-admin/install.adoc","mtime":"2019-06-19T09:42:26.352Z","type":"asciidoc","time":""},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

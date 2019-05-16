@@ -1,0 +1,13 @@
+---
+apiVersion: admin.enmasse.io/v1beta2
+kind: AddressPlan
+metadata:
+  name: anycast-lowresources
+  labels:
+    app: rhte2019-admin
+spec:
+  displayName: Anycast link with low resource guarantees.
+  addressType: anycast
+  resources:
+    router: 0.001
+    broker: 0.15

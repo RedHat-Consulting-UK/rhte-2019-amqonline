@@ -1,0 +1,18 @@
+image::https://travis-ci.org/RedHat-Consulting-UK/rhte-2019.svg?branch=master[link="https://travis-ci.org/RedHat-Consulting-UK/rhte-2019"]
+image::https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000[License]
+
+= rhte-2019
+Red Hat Tech Exchange 2019 hands on lab, Deploying a Messaging as a Service Framework (MaaSF) to ingest and process data,
+developed by several team members of Red Hat UK&I Services.
+
+- link:https://github.com/garethahealy[@garethahealy]
+- link:https://github.com/monodot[@monodot]
+- link:https://github.com/TinyExplosions[@TinyExplosions]
+- link:https://github.com/ally-jarrett[@ally-jarrett]
+- link:https://github.com/danhawker[@danhawker]
+
+== Participating?
+
+All the slides are link:https://docs.google.com/presentation/d/1NRGL56l4HeycJHgRsSe3N1c6LxsxSD3MftQOFBwEr6s/edit?usp=sharing[here].
+
+Labs starting point is link:lab/README.adoc[here].

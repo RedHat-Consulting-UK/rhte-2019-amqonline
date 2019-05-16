@@ -1,0 +1,94 @@
+= As an Tenant; Configuring a tenant
+
+== Customer Brief
+
+You work for Red Hat as a Middleware Consultant. The OCP cluster has AMQ Online deployed and an AddressSpacePlan and AddressPlans configured
+and ready to be used. But these plans are only set out the quotas and how AMQ Online can be used, no messaging infrastructure has been deployed.
+Your team wants to deploy the messaging bits and start using AMQ Online via AMQP. The following JIRA tickets have been raised.
+
+*CONFIGURE ADDRESS SPACE TO USE STANDARDDEV; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/managing-address-spaces-messaging#address-space-examples-messaging[docs]*
+
+    AS A messaging application tenant
+    I WANT TO configure the address space to use the 'standarddev' AddressSpacePlan
+    SO THAT i have a address space in my application project
+
+*CONFIGURE TWO ADDRESSES WHICH HAS STORE AND FORWARD SEMANTICS USING A CONFIGURED PLAN; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/managing-addresses-messaging#create-address-cli-messaging[docs]*
+
+    AS A messaging application tenant
+    I WANT TO configure two addresses to use store and forward
+    SO THAT i have an address to publish/consume messages to/from
+
+*CONFIGURE A USER WITH READ/WRITE ACCESS TO THE ADDRESSES; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/con-user-model-messaging#authentication[docs]*
+
+    AS A messaging application tenant
+    I WANT TO configure a MessagingUser
+    SO THAT i can produce/consume to my addresses
+
+*CONNECT TEST CLIENT TO ADDRESS SPACE; link:https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_online_on_openshift_container_platform/assembly-connecting-applications-messaging[docs]*
+
+    AS A messaging application tenant
+    I WANT TO produce and consume a 100 messages to the address space
+    SO THAT i know the AddressSpace works correctly
+
+TIP: Dont know the route or service name for your address space? Look at the status of your address space:
+     oc get addressspace smarttruck -o yaml
+
+Dont have a AMQP client? Why not try link:https://developers.redhat.com/blog/2019/04/24/using-quiver-with-amq-on-red-hat-openshift-container-platform/[using Quiver?]
+
+== How do I do that?
+
+A starting point for link:templates[YAML templates] has been provided but some have missing properties.
+Follow the docs provided and update the YAML. Once you have applied the YAML to the cluster, you should see something like:
+
+[source,bash,prettyprint]
+----
+$ oc apply -f lab/scenario1/2_tenant/templates -n $APP_NS
+addressspace.enmasse.io/smarttruck created
+address.enmasse.io/smarttruck.drivernotifications created
+address.enmasse.io/smarttruck.trucknotifications created
+messaginguser.user.enmasse.io/smarttruck.truck1 created
+
+$ oc get pods -n $OPERATOR_NS
+NAME                                        READY   STATUS    RESTARTS   AGE
+enmasse-operator-85f495fc7c-fzq8t           1/1     Running   0          64m
+address-space-controller-779b646cb9-cqs5p   1/1     Running   0          64m
+api-server-9fc7bf698-4btgd                  1/1     Running   0          64m
+user-api-server-556d984467-27xsd            1/1     Running   0          64m
+standard-authservice-77859d9ccb-2grlg       1/1     Running   0          27m
+admin.bgfj9fsa0q-d867b4bb-clkvg             2/2     Running   0          3m
+qdrouterd-bgfj9fsa0q-0                      1/1     Running   0          3m
+broker-bgfj9fsa0q-qce8-0                    1/1     Running   0          3m
+broker-bgfj9fsa0q-feen-0                    1/1     Running   0          3m
+broker-bgfj9fsa0q-zo09-0                    1/1     Running   0          3m
+console-5657c8797-drvtp                     2/2     Running   0          3m
+qdrouterd-bgfj9fsa0q-1                      1/1     Running   0          3m
+qdrouterd-bgfj9fsa0q-2                      1/1     Running   0          3m
+
+$ oc get svc -n $OPERATOR_NS
+NAME                             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                                                   AGE
+service/broker-bgfj9fsa0q-feen           ClusterIP   None             <none>        8080/TCP                                                  80s
+service/broker-bgfj9fsa0q-qce8           ClusterIP   None             <none>        8080/TCP                                                  80s
+service/broker-bgfj9fsa0q-zo09           ClusterIP   None             <none>        8080/TCP                                                  80s
+service/console                          ClusterIP   172.30.232.192   <none>        8443/TCP                                                  54m
+service/console-bgfj9fsa0q               ClusterIP   172.30.73.204    <none>        8081/TCP                                                  2m4s
+service/messaging-bgfj9fsa0q             ClusterIP   172.30.185.240   <none>        5672/TCP,5671/TCP,55671/TCP,56671/TCP,55672/TCP,443/TCP   2m4s
+service/qdrouterd-headless-bgfj9fsa0q    ClusterIP   None             <none>        55672/TCP,8080/TCP                                        2m4s
+service/queue-scheduler-bgfj9fsa0q       ClusterIP   172.30.43.217    <none>        5672/TCP                                                  2m4s
+service/ragent-bgfj9fsa0q                ClusterIP   172.30.135.155   <none>        5671/TCP                                                  2m4s
+service/standard-authservice             ClusterIP   172.30.147.210   <none>        8443/TCP,5671/TCP                                         18m
+service/standard-controller-bgfj9fsa0q   ClusterIP   172.30.207.76    <none>        8080/TCP                                                  2m4s
+service/v1beta1-enmasse-io               ClusterIP   172.30.195.249   <none>        443/TCP                                                   55m
+service/v1beta1-user-enmasse-io          ClusterIP   172.30.34.204    <none>        443/TCP                                                   55m                                                16m
+
+$ oc get route -n $OPERATOR_NS
+NAME                                                HOST/PORT                                                                                             PATH   SERVICES               PORT    TERMINATION   WILDCARD
+route.route.openshift.io/console                    console-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                           console                https   reencrypt     None
+route.route.openshift.io/console-bgfj9fsa0q         console-bgfj9fsa0q-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com                console-bgfj9fsa0q     https   reencrypt     None
+route.route.openshift.io/messaging-bgfj9fsa0q       messaging-bgfj9fsa0q-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com              messaging-bgfj9fsa0q   amqps   passthrough   None
+route.route.openshift.io/messaging-wss-bgfj9fsa0q   messaging-wss-bgfj9fsa0q-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com          messaging-bgfj9fsa0q   https   reencrypt     None
+route.route.openshift.io/standard-authservice       standard-authservice-openshift-operators.apps.cluster-none-4fd7.none-4fd7.openshiftworkshop.com              standard-authservice   https   reencrypt     None
+----
+
+== Whats next?
+
+You've now completed the scenario; lets move onto link:../../scenario2/scenario2.adoc[scenario 2].

@@ -1,0 +1,15 @@
+---
+apiVersion: admin.enmasse.io/v1beta1
+kind: StandardInfraConfig
+metadata:
+  name: lowresources
+  labels:
+    app: rhte2019-admin
+spec:
+  admin:
+    resources:
+      memory: 512Mi
+  router:
+    minReplicas: 3
+    linkCapacity: 250
+  broker:
